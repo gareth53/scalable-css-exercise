@@ -9,6 +9,7 @@ body {
 	background: #eee;
 	font-size:14px;
 	font-family: "Open Sans", sans-serif;
+	padding-bottom:600px;
 }
 a {
 	color:#253078;
@@ -48,6 +49,66 @@ h2 {
 }
 
 
+/* ELEMENTS */
+.card__hdr {
+	font-size:16px;
+	font-weight:normal;
+	line-height:1.2;
+	margin: 5px 0 45px;
+	float:left;
+	clear:left;
+	font-weight:400;
+}
+.card__link:hover {
+	color:red;
+}
+.card__link:hover .card__img {
+	opacity:0.8;
+}
+.card__topic,
+.card__pubdate {
+	position:absolute;
+	bottom:0;
+	left:0;
+}
+.card__topic {
+	position:absolute;
+	right:0;
+	left:auto;
+}
+.card__topic_link {
+	display: block;
+	border: 1px solid #fa3135;
+	background-color:#fa3135;
+	color: #fff;
+	padding:4px;
+	font-size:12px;
+	font-weight:600;
+	text-transform:uppercase;
+}
+.card__topic_link:hover,
+.card__topic_link:focus {
+	background-color:#eee;
+	color: #fa3135;
+}
+.card__pubdate {
+	color: #0099ff;
+	padding-bottom:5px;
+}
+.card__img_wrapper {
+	position: relative;
+	max-width:100%;
+	margin-bottom:5px;
+}
+.card__img {
+	display:block;
+	width:100%;
+	height:auto;
+	opacity:1;
+	transition: opacity .5s;
+}
+
+
 /* MODIFIERS */
 .card--shadow {
 	background-color:#fff;
@@ -82,50 +143,25 @@ h2 {
 	width:116px;
 }
 
-/* ELEMENTS */
-.card__hdr {
-	font-size:16px;
-	line-height:1.1;
-	font-weight:normal;
-	margin: 5px 0 45px;
-	float:left;
-	clear:left;
+.card__img_wrapper--badge:after {
+    width: 30px;
+    height: 30px;
+    background: rgba(250, 49, 53, 0.8);
+    background-repeat: no-repeat;
+    background-position: center center;
+    border-radius: 50%;
+	content: " ";
+    display: block;
+    position: absolute;
+    left: 5px;
+    bottom: 5px;
+    z-index: 2;
 }
-.card__topic,
-.card__pubdate {
-	position:absolute;
-	bottom:0;
-	left:0;
+.card__img_wrapper--badge-article:after {
+    background-image: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgi…gICAgICAgIDwvZz4gICAgICAgICAgICA8L2c+ICAgICAgICA8L2c+ICAgIDwvZz48L3N2Zz4=");
 }
-.card__topic {
-	position:absolute;
-	right:0;
-	left:auto;
-}
-.card__topic_link {
-	display: block;
-	background-color:#fa3135;
-	color: #fff;
-	padding:5px;
-	text-transform:uppercase;
-}
-.card__topic_link:hover,
-.card__topic_link:focus {
-	background-color:#eee;
-	color: #fa3135;
-}
-.card__pubdate {
-	color: #0099ff;
-	padding-bottom:5px;
-}
-.card__img_wrapper {
-	max-width:100%;
-	margin-bottom:5px;
-}
-.card__img {
-	display:block;
-	width:100%;
-	height:auto;
+.card__img_wrapper--badge-gallery:after {
+    background-image: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+PHN2ZyB3aWR0aD0iMTlweCIgaGVpZ2h0PSIxNHB4IiB2aWV3Qm94PSIwIDAgMTkgMTQiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeG1sbnM6c2tldGNoPSJodHRwOi8vd3d3LmJvaGVtaWFuY29kaW5nLmNvbS9za2V0Y2gvbnMiPiAgICAgICAgPHRpdGxlPlJlY3RhbmdsZSAxMjEgQ29weSA0PC90aXRsZT4gICAgPGRlc2M+Q3JlYXRlZCB3aXRoIFNrZXRjaC48L2Rlc2M+ICAgIDxkZWZzPjwvZGVmcz4gICAgPGcgaWQ9IlBhZ2UtMSIgc3Ryb2tlPSJub25lIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCIgc2tldGNoOnR5cGU9Ik1TUGFnZSI+ICAgICAgICA8ZyBpZD0iQ2FyZC1TdHlsZXMtRGVza3RvcCIgc2tldGNoOnR5cGU9Ik1TQXJ0Ym9hcmRHcm91cCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTI2NzYuMDAwMDAwLCAtMzc1LjAwMDAwMCkiIGZpbGw9IiNGRkZGRkYiPiAgICAgICAgICAgIDxnIGlkPSJIZXJvLVdpZGUtNS1Db3B5IiBza2V0Y2g6dHlwZT0iTVNMYXllckdyb3VwIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgyNjU4LjYyNTAwMCwgMTg0LjUwMDAwMCkiPiAgICAgICAgICAgICAgICA8ZyBpZD0iZ2FsbGVyeS1iYWRnZS1kZXNrIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxMi4wMDAwMDAsIDE4My4wMDAwMDApIiBza2V0Y2g6dHlwZT0iTVNTaGFwZUdyb3VwIj4gICAgICAgICAgICAgICAgICAgIDxwYXRoIGQ9Ik0xMS43MTY5MTYsOS43MzMzMzMzMyBMNy4xMzk2MzYxMSw5LjczMzMzMzMzIEM2LjUxOTI5MjgzLDkuNzMzMzMzMzMgNiwxMC4yNDQ3NjMxIDYsMTAuODc1NjQzOCBMNiwxOS44NTc2ODk2IEM2LDIwLjQ4NjYxODEgNi41MTAyMzI0NywyMSA3LjEzOTYzNjExLDIxIEwyMi44NjAzNjM5LDIxIEMyMy40ODA3MDcyLDIxIDI0LDIwLjQ4ODU3MDIgMjQsMTkuODU3Njg5NiBMMjQsMTAuODc1NjQzOCBDMjQsMTAuMjQ2NzE1MiAyMy40ODk3Njc1LDkuNzMzMzMzMzMgMjIuODYwMzYzOSw5LjczMzMzMzMzIEwxOC4yODMwODQsOS43MzMzMzMzMyBMMTguMDEzNTY4Myw4LjY1OTM1ODMxIEMxNy45MjEyNTI1LDguMjkxNDk1MzMgMTcuNTQ1NTM2Myw4IDE3LjE3MjMwMzQsOCBMMTIuODI3Njk2Niw4IEMxMi40NTgxNTEzLDggMTIuMDc3ODE2Niw4LjI5NTIwNDc3IDExLjk4NjQzMTcsOC42NTkzNTgzMSBMMTEuNzE2OTE2LDkuNzMzMzMzMzMgTDExLjcxNjkxNiw5LjczMzMzMzMzIFogTTE1LDE5Ljg4NTcxNDMgQzE3LjIwMjE0ODEsMTkuODg1NzE0MyAxOC45ODczNDE4LDE3Ljk0NTYxNDkgMTguOTg3MzQxOCwxNS41NTIzODEgQzE4Ljk4NzM0MTgsMTMuMTU5MTQ3IDE3LjIwMjE0ODEsMTEuMjE5MDQ3NiAxNSwxMS4yMTkwNDc2IEMxMi43OTc4NTE5LDExLjIxOTA0NzYgMTEuMDEyNjU4MiwxMy4xNTkxNDcgMTEuMDEyNjU4MiwxNS41NTIzODEgQzExLjAxMjY1ODIsMTcuOTQ1NjE0OSAxMi43OTc4NTE5LDE5Ljg4NTcxNDMgMTUsMTkuODg1NzE0MyBaIiBpZD0iUmVjdGFuZ2xlLTEyMS1Db3B5LTQiPjwvcGF0aD4gICAgICAgICAgICAgICAgPC9nPiAgICAgICAgICAgIDwvZz4gICAgICAgIDwvZz4gICAgPC9nPjwvc3ZnPg==")
 }
 
 
@@ -140,7 +176,7 @@ h2 {
 	<h2>Longform</h2>
 
 	<div class="card card--shadow">
-	    <a href="/tests/">
+	    <a href="/tests/" class="card__link">
 	        <div class="card__img_wrapper">
 	            <img class="card__img" src="http://assets1.capitalfm.com/2015/35/helicopter-1441384883-editorial-long-form-0.jpg">
 	        </div>
@@ -159,7 +195,7 @@ h2 {
 	<h2>Shortform Portrait</h2>
 
 	<div class="card card--narrow">
-	    <a href="/artists/ellie-goulding/news/2016-uk-tour-dates/">
+	    <a href="/artists/ellie-goulding/news/2016-uk-tour-dates/" class="card__link">
 	    	<div class="card__img_wrapper">
 	    		<img class="card__img" src="http://assets7.capitalfm.com/2015/37/ellie-goulding-press-shot-1442497283-small-pod-0.jpg" alt="Ellie Goulding Press Shot">
 	    	</div>
@@ -179,8 +215,8 @@ h2 {
 	<h2>Shortform Landscape</h2>
 
 	<div class="card card--shadow card--horiz">
-	    <a href="/artists/ellie-goulding/news/2016-uk-tour-dates/">
-	    	<div class="card__img_wrapper">
+	    <a href="/artists/ellie-goulding/news/2016-uk-tour-dates/" class="card__link">
+	    	<div class="card__img_wrapper card__img_wrapper--badge card__img_wrapper--badge-gallery">
 	    		<img class="card__img" src="http://assets7.capitalfm.com/2015/37/ellie-goulding-press-shot-1442497283-small-pod-0.jpg" alt="Ellie Goulding Press Shot">
 	    	</div>
 	    	<h3 class="card__hdr">
@@ -199,7 +235,7 @@ h2 {
 	<h2>Midform</h2>
 
 	<div class="card">
-	    <a href="/new-music/itunes-downloads-28-august-2015/">
+	    <a href="/new-music/itunes-downloads-28-august-2015/" class="card__link">
 	    	<div class="card__img_wrapper">
 	    		<img class="card__img" src="http://assets5.capitalfm.staging.int.thisisglobal.com/2013/19/demi-lovato-heart-attack-1368618582-hero-mid-0.png" alt="Demi Lovato Heart Attack">
 	    	</div>
