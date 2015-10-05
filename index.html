@@ -7,37 +7,57 @@
 
 body {
 	background: #eee;
-	padding-bottom: 60px;
+	font-size:14px;
+	font-family: "Open Sans", sans-serif;
+	padding-bottom:600px;
+}
+a {
+	color:#253078;
+	text-decoration:none;
+}
+h1, h2, h3, h4, h5, h6, p {
+	font-size:14px;	
+	margin:0;
+	padding:0;
+	font-weight:normal;
+}
+h1 {
+	font-size:30px;
+	margin-bottom:.5em;
+	font-weight:bold;
 }
 h2 {
+	font-size: 25px;
 	margin:2em 0 1em;
+	font-weight:bold;
 }
 
 
 /* LAYOUT */
 
 .l-cardset {
-	width:230px;
+	overflow:hidden;
+	margin-bottom:1em;
 }
 .l-cardset.l-cardset1 {
-	/* level 2 cardset */
+	/* level 1 cardset */
+	width:360px;
 }
 .l-cardset.l-cardset2 {
 	/* level 2 cardset */
+	width:720px;
 }
 .l-cardset.l-cardset3 {
-	/* level 2 cardset */
+	/* level 3 cardset */
+	width:1080px;
 }
 
-.l-card {
-	float:left;
-	margin:0 5px 10px;
-}
-	.l-card.l-card1 {
-		width: 50%;
+	.card.l-card1 {
+		/* shortform pportrait */
+		width: 170px;
 	}
-	.l-card.l-card2 {
-		width: 100%;
+	.card.l-card2 {
+		width: 350px;
 	}
 
 
@@ -45,7 +65,11 @@ h2 {
 /* MODULE */
 
 .card {
-
+	position:relative;
+	overflow: hidden;
+	float:left;
+	width:100%;
+	margin:0 5px 10px;
 }
 	.card.card-horiz {
 
@@ -54,46 +78,91 @@ h2 {
 
 	}
 	.card.card-shadow {
-
+		background-color:#fff;
+		box-shadow: 0 0 2px 1px rgba(191, 179, 179, 0.2);
 	}
-	.card > h3 {
+		.card.card-shadow h3 {
+			margin:5px 10px 10px;
+		}
+		.card.card-shadow .card-topic,
+		.card.card-shadow .card-pub_date {
+			margin:10px;
+		}
 
+	.card > h3 {
+		font-size:16px;
+		font-weight:normal;
+		line-height:1.2;
+		margin: 5px 0 45px;
+		float:left;
+		clear:left;
+		font-weight:400;
 	}
 	.card > h3 > a {
 
 	}
-
+	.card > h3 > a:hover {
+		color:red;
+	}
 
 .card-img_wrapper {
-
+	position: relative;
+	max-width:100%;
+	margin-bottom:5px;
 }
-	.card-img_wrapper > a {
-
+	.card-img_wrapper > a:hover img {
+		opacity: 0.4;
 	}
 	.card-img_wrapper > a > img,
 	.card-img_wrapper > img {
-		width: 100%;
+		display:block;
+		width:100%;
 		height:auto;
+		opacity:1;
+		transition: opacity .5s;
 	}
 
-.card-topic {
-
+.card-topic,
+.card-pub_date {
+	position:absolute;
+	bottom:0;
+	right:0;
 }
 	.card-topic > a {
-
+		display: block;
+		border: 1px solid #fa3135;
+		background-color:#fa3135;
+		color: #fff;
+		padding:4px;
+		font-size:12px;
+		font-weight:600;
+		text-transform:uppercase;
+	}
+	.card-topic > a:focus,
+	.card-topic > a:hover {
+		background-color:#eee;
+		color: #fa3135;
 	}
 
 .card-pub_date {
-
+	color: #0099ff;
+	right:auto;
+	left:0;
+	padding-bottom:5px;
 }
 
 /* STATE */
 
-.is-article {}
-.is-video {}
-.is-gallery {}
+.card.is-topic h3,
+.card.is-dated h3 {
+	margin-bottom:40px !important;
+}
 
-.is-not-linked {}
+.card.is-article {}
+.card.is-video {}
+.card.is-gallery {}
+
+.card.is-not-linked {}
 
 </style>
 
@@ -105,28 +174,70 @@ h2 {
 
 	<h2>Longform</h2>
 
-	<div class="card card-shadow l-card2">
-	        <div class="img_wrapper visible">
-			    <a href="/tests/">
-	    	        <img class="card-img" src="http://assets1.capitalfm.com/2015/35/helicopter-1441384883-editorial-long-form-0.jpg">
-	    	     </a>
-	        </div>
-	    	<h3>
-			    <a href="/tests/">
-	    		Win A Helicopter Or Balloon Trip With Up&amp;Go
-		    	</a>
-	    	</h3>
-	    </a>
+	<div class="card card-shadow l-card2 is-topic is-dated">
+        <div class="card-img_wrapper visible">
+		    <a href="/tests/">
+    	        <img class="card-img" src="http://assets1.capitalfm.com/2015/35/helicopter-1441384883-editorial-long-form-0.jpg">
+    	     </a>
+        </div>
+    	<h3>
+		    <a href="/tests/">
+    		Win A Helicopter Or Balloon Trip With Up&amp;Go
+	    	</a>
+    	</h3>
+		<p class="card-pub_date">
+			4 minutes ago
+		</p>
+	</div>
+	<div class="card card-shadow l-card2 is-topic">
+        <div class="card-img_wrapper visible">
+		    <a href="/tests/">
+    	        <img class="card-img" src="http://assets1.capitalfm.com/2015/35/helicopter-1441384883-editorial-long-form-0.jpg">
+    	     </a>
+        </div>
+    	<h3>
+		    <a href="/tests/">
+    		Win A Helicopter Or Balloon Trip With Up&amp;Go
+	    	</a>
+    	</h3>
 		<p class="card-topic">
 			<a href="/win/">Win</a>
 		</p>
 	</div>
+	<div class="card card-shadow l-card2">
+        <div class="card-img_wrapper visible">
+		    <a href="/tests/">
+    	        <img class="card-img" src="http://assets1.capitalfm.com/2015/35/helicopter-1441384883-editorial-long-form-0.jpg">
+    	     </a>
+        </div>
+    	<h3>
+		    <a href="/tests/">
+    		Win A Helicopter Or Balloon Trip With Up&amp;Go
+	    	</a>
+    	</h3>
+	</div>
+	<div class="card card-shadow l-card2">
+        <div class="card-img_wrapper visible">
+		    <a href="/tests/">
+    	        <img class="card-img" src="http://assets1.capitalfm.com/2015/35/helicopter-1441384883-editorial-long-form-0.jpg">
+    	     </a>
+        </div>
+    	<h3>
+		    <a href="/tests/">
+    		Win A Helicopter Or Balloon Trip With Up&amp;Go
+	    	</a>
+    	</h3>
+	</div>
 
 
+</div>
+
+
+<div class="l-cardset l-cardset2">
 
 	<h2>Shortform Portrait</h2>
 
-	<div class="card l-card1">
+	<div class="card l-card1 is-topic is-dated">
     	<div class="card-img_wrapper">
 			<a href="/artists/ellie-goulding/news/2016-uk-tour-dates/">
     			<img class="card-img" src="http://assets7.capitalfm.com/2015/37/ellie-goulding-press-shot-1442497283-small-pod-0.jpg" alt="Ellie Goulding Press Shot">
@@ -145,48 +256,65 @@ h2 {
 		</p>
 	</div>
 
+	<div class="card l-card1">
+    	<div class="card-img_wrapper">
+			<a href="/artists/ellie-goulding/news/2016-uk-tour-dates/">
+    			<img class="card-img" src="http://assets7.capitalfm.com/2015/37/ellie-goulding-press-shot-1442497283-small-pod-0.jpg" alt="Ellie Goulding Press Shot">
+    		</a>
+    	</div>
+    	<h3>
+    		<a href="/artists/ellie-goulding/news/2016-uk-tour-dates/">
+    		Ellie Goulding's 2016 UK Tour Dates - Want To See The 'On My Mind' Star's New Live Tour?
+	    	</a>
+    	</h3>
+	</div>
+
+</div>
+
+
+<div class="l-cardset l-cardset2">
 
 	<h2>Shortform Landscape</h2>
 
-	<div class="card card-shadow card-horiz l-card2">
-	    	<div class="card-img_wrapper">
-			    <a href="/artists/ellie-goulding/news/2016-uk-tour-dates/">
-	    			<img class="card-img" src="http://assets7.capitalfm.com/2015/37/ellie-goulding-press-shot-1442497283-small-pod-0.jpg" alt="Ellie Goulding Press Shot">
-	    		</a>
-	    	</div>
-	    	<h3>
-			    <a href="/artists/ellie-goulding/news/2016-uk-tour-dates/">
-	    		Ellie Goulding's 2016 UK Tour Dates - Want To See The 'On My Mind' Star's New Live Tour?
-		    	</a>
-	    	</h3>
-	        <p class="card-pub_date">
-	        	1 hour ago
-	        </p>
-	    </a>
+	<div class="card card-shadow card-horiz l-card2 is-topic is-dated">
+    	<div class="card-img_wrapper">
+		    <a href="/artists/ellie-goulding/news/2016-uk-tour-dates/">
+    			<img class="card-img" src="http://assets7.capitalfm.com/2015/37/ellie-goulding-press-shot-1442497283-small-pod-0.jpg" alt="Ellie Goulding Press Shot">
+    		</a>
+    	</div>
+    	<h3>
+		    <a href="/artists/ellie-goulding/news/2016-uk-tour-dates/">
+    		Ellie Goulding's 2016 UK Tour Dates - Want To See The 'On My Mind' Star's New Live Tour?
+	    	</a>
+    	</h3>
+        <p class="card-pub_date">
+        	1 hour ago
+        </p>
 		<p class="card-topic">
 			<a href="/artists/ellie-goulding/">Ellie Goulding</a>
 		</p>
 	</div>
+</div>
 
+
+<div class="l-cardset l-cardset2">
 
 	<h2>Midform</h2>
 
-	<div class="card l-card2">
-	    <a href="/new-music/itunes-downloads-28-august-2015/">
-	    	<div class="card-img_wrapper">
-			    <a href="/artists/ellie-goulding/news/2016-uk-tour-dates/">
-	    			<img class="card-img" src="http://assets5.capitalfm.staging.int.thisisglobal.com/2013/19/demi-lovato-heart-attack-1368618582-hero-mid-0.png" alt="Demi Lovato Heart Attack">
-	    		</a>
-	    	</div>
-	    	<h3>
-			    <a href="/artists/ellie-goulding/news/2016-uk-tour-dates/">
-					Chart Update: This Sunday Will Be Epic... It's Justin Bieber Vs Demi Lovato!
-				</a>
-	        </h3>
-	        <p class="card-pub_date">
-	        	28 days ago
-	        </p>
-	    </a>
+	<div class="card l-card2 is-topic is-dated">
+    	<div class="card-img_wrapper">
+		    <a href="/artists/ellie-goulding/news/2016-uk-tour-dates/">
+    			<img class="card-img" src="http://assets5.capitalfm.staging.int.thisisglobal.com/2013/19/demi-lovato-heart-attack-1368618582-hero-mid-0.png" alt="Demi Lovato Heart Attack">
+    		</a>
+    	</div>
+    	<h3>
+		    <a href="/artists/ellie-goulding/news/2016-uk-tour-dates/">
+				Chart Update: This Sunday Will Be Epic... It's Justin Bieber Vs Demi Lovato!
+			</a>
+        </h3>
+        <p class="card-pub_date">
+        	28 days ago
+        </p>
 		<p class="card-topic">
 			<a href="/artists/justin-bieber/">Justin Bieber</a>
 		</p>
