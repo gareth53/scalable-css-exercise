@@ -38,6 +38,27 @@ h2 {
 .l-cardset {
 	overflow:hidden;
 	margin-bottom:1em;
+	display: flex;
+    flex-wrap: wrap;
+}
+.l-cardset > h2 {
+	width:100%;
+	position:relative;
+	font-weight: 600;
+    text-transform: uppercase;
+    padding-bottom: 5px;
+    font-size: 18px;
+    margin: 8px 5px 12px;
+    color: #2530cb;
+}
+.l-cardset > h2:after {
+	content: " ";
+	position:absolute;
+	bottom:0;
+	left:0;
+	width:25px;
+	height:3px;
+	background-color:red;
 }
 .l-cardset.l-cardset1 {
 	/* level 1 cardset */
@@ -151,11 +172,44 @@ h2 {
 	padding-bottom:5px;
 }
 
+
+/* skinny cards - need date and pivot link stacked left */
+.card.l-card1 .card-topic,
+.card.l-card1 .card-pub_date {
+	position:static;
+	float:left;
+	clear:left;
+}
+.card.l-card1.is-topic > h3,
+.card.l-card1.is-dated > h3 {
+	margin-bottom:10px;
+}
+
+
+/* horizontal/landscape cards */
+.l-card-horiz {
+	min-height:116px;
+}
+.l-card-horiz .card-img_wrapper {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width:116px;
+	height:116px;
+	margin-bottom:0;
+}
+.card.l-card-horiz > h3 {
+	margin-top:10px;
+}
+.card.l-card-horiz > h3,
+.card.l-card-horiz > p.card-pub_date {
+	margin-left:126px;
+}
 /* STATE */
 
 .card.is-topic h3,
 .card.is-dated h3 {
-	margin-bottom:40px !important;
+	margin-bottom:40px;
 }
 
 .card.is-article {}
@@ -264,11 +318,42 @@ h2 {
     	</div>
     	<h3>
     		<a href="/artists/ellie-goulding/news/2016-uk-tour-dates/">
-    		Ellie Goulding's 2016 UK Tour Dates - Want To See The 'On My Mind' Star's New Live Tour?
+    		Want To See Ellie Goulding's New Tour?
 	    	</a>
     	</h3>
 	</div>
 
+	<div class="card l-card1 is-topic">
+    	<div class="card-img_wrapper">
+			<a href="/artists/ellie-goulding/news/2016-uk-tour-dates/">
+    			<img class="card-img" src="http://assets7.capitalfm.com/2015/37/ellie-goulding-press-shot-1442497283-small-pod-0.jpg" alt="Ellie Goulding Press Shot">
+    		</a>
+    	</div>
+    	<h3>
+    		<a href="/artists/ellie-goulding/news/2016-uk-tour-dates/">
+    		Want To See Ellie Goulding's New Live Tour From a VIP Box?
+	    	</a>
+    	</h3>
+		<p class="card-topic">
+			<a href="/events/">Events</a>
+		</p>
+	</div>
+
+	<div class="card l-card1 is-dated">
+    	<div class="card-img_wrapper">
+			<a href="/artists/ellie-goulding/news/2016-uk-tour-dates/">
+    			<img class="card-img" src="http://assets7.capitalfm.com/2015/37/ellie-goulding-press-shot-1442497283-small-pod-0.jpg" alt="Ellie Goulding Press Shot">
+    		</a>
+    	</div>
+    	<h3>
+    		<a href="/artists/ellie-goulding/news/2016-uk-tour-dates/">
+    		Want To See Ellie Goulding's New Live Tour From a VIP Box Whislt Eating Prawns?
+	    	</a>
+    	</h3>
+        <p class="card-pub_date">
+        	27/09/15
+        </p>
+	</div>
 </div>
 
 
@@ -276,7 +361,7 @@ h2 {
 
 	<h2>Shortform Landscape</h2>
 
-	<div class="card card-shadow card-horiz l-card2 is-topic is-dated">
+	<div class="card card-shadow l-card-horiz l-card2 is-topic is-dated">
     	<div class="card-img_wrapper">
 		    <a href="/artists/ellie-goulding/news/2016-uk-tour-dates/">
     			<img class="card-img" src="http://assets7.capitalfm.com/2015/37/ellie-goulding-press-shot-1442497283-small-pod-0.jpg" alt="Ellie Goulding Press Shot">
@@ -294,10 +379,56 @@ h2 {
 			<a href="/artists/ellie-goulding/">Ellie Goulding</a>
 		</p>
 	</div>
+
+	<div class="card card-shadow l-card-horiz l-card2">
+    	<div class="card-img_wrapper">
+		    <a href="/artists/ellie-goulding/news/2016-uk-tour-dates/">
+    			<img class="card-img" src="http://assets7.capitalfm.com/2015/37/ellie-goulding-press-shot-1442497283-small-pod-0.jpg" alt="Ellie Goulding Press Shot">
+    		</a>
+    	</div>
+    	<h3>
+		    <a href="/artists/ellie-goulding/news/2016-uk-tour-dates/">
+    		Ellie Goulding's 2016 UK Tour Dates
+	    	</a>
+    	</h3>
+	</div>
+
+	<div class="card card-shadow l-card-horiz l-card2">
+    	<div class="card-img_wrapper">
+		    <a href="/artists/ellie-goulding/news/2016-uk-tour-dates/">
+    			<img class="card-img" src="http://assets7.capitalfm.com/2015/37/ellie-goulding-press-shot-1442497283-small-pod-0.jpg" alt="Ellie Goulding Press Shot">
+    		</a>
+    	</div>
+    	<h3>
+		    <a href="/artists/ellie-goulding/news/2016-uk-tour-dates/">
+    		Ellie Goulding's 2016 UK Tour Dates
+	    	</a>
+    	</h3>
+	</div>
+
+	<div class="card card-shadow l-card-horiz l-card2 is-topic is-dated">
+    	<div class="card-img_wrapper">
+		    <a href="/artists/ellie-goulding/news/2016-uk-tour-dates/">
+    			<img class="card-img" src="http://assets7.capitalfm.com/2015/37/ellie-goulding-press-shot-1442497283-small-pod-0.jpg" alt="Ellie Goulding Press Shot">
+    		</a>
+    	</div>
+    	<h3>
+		    <a href="/artists/ellie-goulding/news/2016-uk-tour-dates/">
+    		Ellie Goulding's 2016 UK Tour Dates - Want To See The 'On My Mind' Star's New Show?
+	    	</a>
+    	</h3>
+        <p class="card-pub_date">
+        	1 hour ago
+        </p>
+		<p class="card-topic">
+			<a href="/artists/ellie-goulding/">Ellie Goulding</a>
+		</p>
+	</div>
+
 </div>
 
 
-<div class="l-cardset l-cardset2">
+<div class="l-cardset l-cardset1">
 
 	<h2>Midform</h2>
 
@@ -319,4 +450,53 @@ h2 {
 			<a href="/artists/justin-bieber/">Justin Bieber</a>
 		</p>
 	</div>
+
+	<div class="card l-card2 is-dated">
+    	<div class="card-img_wrapper">
+		    <a href="/artists/ellie-goulding/news/2016-uk-tour-dates/">
+    			<img class="card-img" src="http://assets5.capitalfm.staging.int.thisisglobal.com/2013/19/demi-lovato-heart-attack-1368618582-hero-mid-0.png" alt="Demi Lovato Heart Attack">
+    		</a>
+    	</div>
+    	<h3>
+		    <a href="/artists/ellie-goulding/news/2016-uk-tour-dates/">
+				Chart Update: This Sunday Will Be Epic...
+			</a>
+        </h3>
+        <p class="card-pub_date">
+        	28 days ago
+        </p>
+	</div>
+
+	<div class="card l-card2">
+    	<div class="card-img_wrapper">
+		    <a href="/artists/ellie-goulding/news/2016-uk-tour-dates/">
+    			<img class="card-img" src="http://assets5.capitalfm.staging.int.thisisglobal.com/2013/19/demi-lovato-heart-attack-1368618582-hero-mid-0.png" alt="Demi Lovato Heart Attack">
+    		</a>
+    	</div>
+    	<h3>
+		    <a href="/artists/ellie-goulding/news/2016-uk-tour-dates/">
+				Chart Update: This Sunday Will Be Epic... It's Justin Bieber Vs Demi Lovato!
+			</a>
+        </h3>
+	</div>
+
+	<div class="card l-card2 is-topic is-dated">
+    	<div class="card-img_wrapper">
+		    <a href="/artists/ellie-goulding/news/2016-uk-tour-dates/">
+    			<img class="card-img" src="http://assets5.capitalfm.staging.int.thisisglobal.com/2013/19/demi-lovato-heart-attack-1368618582-hero-mid-0.png" alt="Demi Lovato Heart Attack">
+    		</a>
+    	</div>
+    	<h3>
+		    <a href="/artists/ellie-goulding/news/2016-uk-tour-dates/">
+				Chart Update: This Sunday Will Be Epic... It's Justin Bieber Vs Demi Lovato! ANd You Can Be There!
+			</a>
+        </h3>
+        <p class="card-pub_date">
+        	28 days ago
+        </p>
+		<p class="card-topic">
+			<a href="/artists/justin-bieber/">Justin Bieber</a>
+		</p>
+	</div>
+
 </div>
